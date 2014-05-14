@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## **unreleased**
+## **v0.0.2** - *Released: 13 May 2014*
 
 * Remove superfluous `activationEvents` from `package.json`
 * Add keymap for <kbd>TAB</kbd> to call auto-indent
