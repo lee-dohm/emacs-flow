@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## **v0.0.3** - *Released: 14 May 2014**
+
+* Update README and other documentation
+
 ## **v0.0.2** - *Released: 13 May 2014*
 
 * Remove superfluous `activationEvents` from `package.json`
