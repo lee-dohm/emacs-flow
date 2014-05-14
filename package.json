@@ -1,14 +1,15 @@
 {
   "name": "emacs-flow",
   "main": "./lib/index",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Offers Emacs-like indentation functionality",
-  "activationEvents": ["emacs-flow:auto-indent"],
+  "activationEvents": [
+    "emacs-flow:auto-indent"
+  ],
   "repository": "https://github.com/lee-dohm/emacs-flow",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
