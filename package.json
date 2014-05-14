@@ -1,7 +1,7 @@
 {
   "name": "emacs-flow",
   "main": "./lib/index",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Offers Emacs-like indentation functionality",
   "repository": "https://github.com/lee-dohm/emacs-flow",
   "license": "MIT",
