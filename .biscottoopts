@@ -1,0 +1,6 @@
+--name "Emacs Flow"
+--title "Emacs Flow Documentation"
+./lib
+-
+CHANGELOG.md
+LICENSE.md
