@@ -1,30 +1,31 @@
+path = require 'path'
+fs = require 'fs-plus'
 {WorkspaceView} = require 'atom'
-EmacsFlow = require '../lib/emacs-flow'
+temp = require 'temp'
 
-# Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
-#
-# To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
-# or `fdescribe`). Remove the `f` to unfocus the block.
-
-describe "EmacsFlow", ->
-  activationPromise = null
+describe 'Emacs Flow', ->
+  [editor, buffer] = []
 
   beforeEach ->
-    atom.workspaceView = new WorkspaceView
-    activationPromise = atom.packages.activatePackage('emacs-flow')
+    directory = temp.mkdirSync()
+    atom.project.setPath(directory)
+    atom.workspaceView = new WorkspaceView()
+    filePath = path.join(directory, 'emacs-flow.coffee')
+    fs.writeFileSync(filePath, '')
+    editor = atom.workspace.openSync(filePath)
+    buffer = editor.getBuffer()
 
-  describe "when the emacs-flow:toggle event is triggered", ->
-    it "attaches and then detaches the view", ->
-      expect(atom.workspaceView.find('.emacs-flow')).not.toExist()
+    waitsForPromise ->
+      atom.packages.activatePackage('emacs-flow')
 
-      # This is an activation event, triggering it will cause the package to be
-      # activated.
-      atom.workspaceView.trigger 'emacs-flow:toggle'
+    waitsForPromise ->
+      atom.packages.activatePackage('language-coffee-script')
 
-      waitsForPromise ->
-        activationPromise
+  describe 'auto-indent', ->
+    it 'auto-indents the row at the current cursor location', ->
+      buffer.setText('foo = ->\nbar = 5')
+      editor.setCursorBufferPosition([1, 0])
+      atom.workspaceView.trigger('emacs-flow:auto-indent')
 
-      runs ->
-        expect(atom.workspaceView.find('.emacs-flow')).toExist()
-        atom.workspaceView.trigger 'emacs-flow:toggle'
-        expect(atom.workspaceView.find('.emacs-flow')).not.toExist()
+      expect(buffer.lineForRow(0)).toBe 'foo = ->'
+      expect(buffer.lineForRow(1)).toBe '  bar = 5'
