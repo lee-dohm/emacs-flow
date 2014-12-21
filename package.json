@@ -6,12 +6,10 @@
   "repository": "https://github.com/lee-dohm/emacs-flow",
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">0.164.0"
   },
   "dependencies": {},
   "devDependencies": {
-    "fs-plus": "2.x",
-    "temp": "~0.6.0",
-    "text-buffer": ">1.4.0"
+    "temp": "~0.6.0"
   }
 }

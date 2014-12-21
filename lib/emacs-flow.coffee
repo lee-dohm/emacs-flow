@@ -8,8 +8,8 @@ module.exports =
 class EmacsFlow
   # Public: Auto-indents the current row in the active editor.
   autoIndent: ->
-    editor = atom.workspace.getActiveEditor()
-    return unless editor?
+    editor = atom.workspace.getActiveTextEditor()
+    return unless editor
 
     [row, _] = editor.getCursorBufferPosition().toArray()
     editor.autoIndentBufferRow(row)
