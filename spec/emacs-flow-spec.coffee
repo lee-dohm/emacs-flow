@@ -1,7 +1,10 @@
-path = require 'path'
 fs = require 'fs'
-{WorkspaceView} = require 'atom'
+path = require 'path'
 temp = require 'temp'
+
+{WorkspaceView} = require 'atom'
+
+helper = require './spec-helper'
 
 describe 'Emacs Flow', ->
   [editor, buffer, filePath, editorView] = []
@@ -27,6 +30,17 @@ describe 'Emacs Flow', ->
     runs ->
       buffer = editor.getBuffer()
       editorView = atom.views.getView(editor)
+
+  describe 'activation', ->
+    it 'creates the command', ->
+      expect(helper.hasCommand(editorView, 'emacs-flow:auto-indent')).toBeTruthy()
+
+  describe 'deactivation', ->
+    beforeEach ->
+      atom.packages.deactivatePackage('emacs-flow')
+
+    it 'removes the command', ->
+      expect(helper.hasCommand(editorView, 'emacs-flow:auto-indent')).toBeFalsy()
 
   describe 'auto-indent', ->
     it 'auto-indents the row at the current cursor location', ->
