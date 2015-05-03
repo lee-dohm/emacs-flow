@@ -1,4 +1,4 @@
-Copyright &copy; 2014 Lee Dohm
+Copyright &copy; 2014-2015 Lee Dohm
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
