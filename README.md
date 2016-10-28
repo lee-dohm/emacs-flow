@@ -1,10 +1,12 @@
 # Emacs Flow
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 Offers Emacs-like indentation functionality.
 
-## WARNING: DEPRECATED
+## :rotating_light: WARNING: DEPRECATED :rotating_light:
 
-Since I haven't had any time to support or enhance this package, I've decided to unpublish it. I'm leaving the repository here for historic reasons and if anyone wants to take it over, they're free to. There are some v1.0 deprecations that I haven't fixed as well, so it probably shouldn't be used as sample code anymore either :laughing:
+Since I haven't had any time to support or enhance this package, I've decided to unpublish it. I'm leaving the repository here for historic reasons and if anyone wants to take it over, they're free to. There are some Atom v1.0 deprecations that I haven't fixed as well, so it probably shouldn't be used as sample code anymore either :laughing:
 
 ## Installation
 
